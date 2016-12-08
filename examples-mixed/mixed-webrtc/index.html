@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../../dependency-lib/jquery-2.2.2.min.js"></script>		
+		<script src="../../dependency-lib/jshashtable-3.0/hashtable.js"></script>
+		<script src="../../dependency-lib/jstree-3.3.0/jstree.min.js"></script>
+		<script src="../../dependency-lib/tween.js-16.3.4/Tween.js"></script>
+		<script src="../../dependency-lib/html2canvas-0.5.0-beta4/html2canvas.min.js"></script>
+		<script src="../../dependency-lib/defiant.js-1.3.8/defiant.min.js"></script>
+		<script src="../../dependency-lib/css.min.js"></script>
+		<script src="../../dependency-lib/uuid.js"></script>
+		<script src="../../lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		<script src="../../threejs/three.min.js"></script>
+		<script src="../../threejs/CSS3DRenderer.js"></script>		
+		<script src="../../threejs/TrackballControls.js"></script>
+		<script src="../../threejs/VRMLLoader.js"></script>
+		<script src="../../mavr-lib/build/mavr.min.js"></script>		
+		<script src="../../lib/engineObject.js"></script>
+		<script src="web3d.js"></script>
+		<link rel="stylesheet" href="../../dependency-lib/jstree-3.3.0/themes/default/style.min.css">
+		<link rel="stylesheet" href="../../lib/jquery-ui-1.11.4/jquery-ui.min.css">
+		<link rel="stylesheet" href="../../mavr-lib/build/mavr.css">
+		<link rel="stylesheet" href="../../lib/3DObjects.css">
+		<link rel="stylesheet" href="../../lib/webrtc.css">
+		<title>solar system</title>
+	</head>
+	<body>
+		<div id="overview">
+			<h3>RC OS 15CV Max Model Engine</h3>
+			<h6>
+				<table>
+					<tr>
+						<td><b>Code</b></td>
+						<td>8791</td>
+					</tr>
+					<tr>
+						<td><b>Type</b></td>
+						<td>Polygonal</td>
+					</tr>
+					<tr>
+						<td><b>Polygons</b></td>
+						<td>47500</td>
+					</tr>
+					<tr>
+						<td><b>Vertices</b></td>
+						<td>23670</td>
+					</tr>
+					<tr>
+						<td><b>Sub-Objects</b></td>
+						<td>4 </td>
+					</tr>
+					<tr>
+						<td><b>Materials</b></td>
+						<td>3</td>
+					</tr>
+					<tr>
+						<td><b>Textures</b></td>
+						<td>0</td>
+					</tr>
+				</table>
+			</h6>
+		</div>
+		<div id="overview_btn">
+			<input type="submit" value="-"> 
+		</div>
+		<div id="annotation1" class="annotation">			
+			<video id="gum-local" autoplay></video>
+	    <div id="errorMsg"></div>
+		</div>
+		<div id="annotation2" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>
+			<iframe width="200" height="113" src="https://www.youtube.com/embed/x0rxRcaEEcg?rel=0&amp;showinfo=0&amp;t=0m42s" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div id="annotation3" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>			
+			<iframe width="200" height="113" src="https://www.youtube.com/embed/x0rxRcaEEcg?rel=0&amp;showinfo=0&amp;t=0m42s" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div id="annotation4" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>			
+			<iframe width="200" height="113" src="https://www.youtube.com/embed/x0rxRcaEEcg?rel=0&amp;showinfo=0&amp;t=0m42s" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div id="annotation5" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>			
+			<h3>annotation5</h3>
+		</div>
+		<div id="annotation6" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>			
+			<h3>annotation6</h3>
+		</div>
+		<div id="annotation7" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>			
+			<h3>annotation7</h3>
+		</div>
+		<div id="annotation8" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>			
+			<h3>annotation8</h3>
+		</div>
+		<script>
+		$(function() {
+			init();
+			animate();
+		});
+		</script>		
+		<script src="webrtc/js/adapter.js"></script>
+		<script src="webrtc/js/common.js"></script>
+		<script src="webrtc.js"></script>		
+	</body>
+</html>

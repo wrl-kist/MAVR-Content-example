@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../../dependency-lib/jquery-2.2.2.min.js"></script>		
+		<script src="../../dependency-lib/jshashtable-3.0/hashtable.js"></script>
+		<script src="../../dependency-lib/jstree-3.3.0/jstree.min.js"></script>
+		<script src="../../dependency-lib/tween.js-16.3.4/Tween.js"></script>
+		<script src="../../dependency-lib/html2canvas-0.5.0-beta4/html2canvas.min.js"></script>
+		<script src="../../dependency-lib/defiant.js-1.3.8/defiant.min.js"></script>
+		<script src="../../dependency-lib/css.min.js"></script>
+		<script src="../../dependency-lib/uuid.js"></script>
+		<script src="../../lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		<script src="../../threejs/three.min.js"></script>
+		<script src="../../threejs/CSS3DRenderer.js"></script>
+		<script src="../../threejs/TrackballControls.js"></script>
+		<script src="../../mavr-lib/build/mavr.min.js"></script>
+		<script src="../../lib/3DObjects.js"></script>
+		<script src="web3d.js"></script>
+		<link rel="stylesheet" href="../../dependency-lib/jstree-3.3.0/themes/default/style.min.css">
+		<link rel="stylesheet" href="../../lib/jquery-ui-1.11.4/jquery-ui.min.css">
+		<link rel="stylesheet" href="../../mavr-lib/build/mavr.css">
+		<link rel="stylesheet" href="../../lib/3DObjects.css">
+		<title>solar system</title>
+	</head>
+	<body>		
+		<div vocab="http://schema.org" typeof="AugmentedObject" id="annotation1" class="annotation">
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>
+			<h3>Sun</h3>
+			Orbit Velocity: 0 km/h<br>
+			Equatorial Circumference: 4,370,005 km<br>
+			From Earth: 149,598,262 km<br>
+			<iframe width="200" height="113" src="https://www.youtube.com/embed/BC9zdI61ve0?rel=0&amp;showinfo=0&amp;t=21m59s" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div id="annotation2" class="annotation">
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>
+			<h3>Mercury</h3>
+			Orbit Velocity: 170,503 km/h<br>
+			Equatorial Circumference: 15,329 km<br>
+			From Sun: 57,909,227 km<br>
+		</div>
+		<div id="annotation4" class="annotation">			
+			<div class="pin" style="text-align: right;"><img src="../../images/unpin.png" width=12 height=12></div>
+			<h3>Earth</h3>
+			Orbit Velocity: 107,218 km/h<br>
+			Equatorial Circumference: 40,030 km<br>
+			From Sun: 149,598,262 km<br>
+			<iframe width="200" height="113" src="https://www.youtube.com/embed/thuViaxRd_w?rel=0&amp;showinfo=0&amp;t=0m42s" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div id="overview" style=display:none;">
+			<h3>Solar System</h3>
+			A solar system refers to a star and all the objects that travel in orbit around it. Our solar system consists of the sun - our star - eight planets and their natural satellites (such as our moon); dwarf planets; asteroids and comets. Our solar system is located in an outward spiral of the Milky Way galaxy.
+			<img width=400 src='http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Planets2013.jpg/340px-Planets2013.jpg'>
+		</div>
+		<div id="overview_btn">
+			<input type="submit" value="+"> 
+		</div>
+		<script>
+		$(function() {
+			init();
+			animate();
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+{
+    "@type": "VirtualObject",
+    "resourceURL": [
+      "pano-geometry.json"
+    ],
+    "@context": "http://webizing.org",
+    "uuid": "56617352d5d989a032c8678b",
+    "name": "panorama-image",
+    "description": "KISTorium 2F-1",
+    "category": [
+      "application/json"
+    ]
+  }

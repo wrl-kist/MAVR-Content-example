@@ -1,0 +1,15 @@
+{
+  "material": {
+    "type": "basic",
+    "map": "../../images/sphere-panorama.jpg",
+    "parameters": {
+      
+    }
+  },
+  "geometry": {
+    "type": "sphere",
+    "radius": 500,
+    "widthSegments": 60,
+    "heightSegments": 40
+  }
+}

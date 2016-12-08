@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="../../dependency-lib/jquery-2.2.2.min.js"></script>		
+		<script src="../../dependency-lib/jshashtable-3.0/hashtable.js"></script>
+		<script src="../../dependency-lib/jstree-3.3.0/jstree.min.js"></script>
+		<script src="../../dependency-lib/tween.js-16.3.4/Tween.js"></script>
+		<script src="../../dependency-lib/html2canvas-0.5.0-beta4/html2canvas.min.js"></script>
+		<script src="../../dependency-lib/defiant.js-1.3.8/defiant.min.js"></script>
+		<script src="../../dependency-lib/css.min.js"></script>
+		<script src="../../dependency-lib/uuid.js"></script>
+		<script src="../../lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		<script src="../../threejs/three.min.js"></script>
+		<script src="../../threejs/CSS3DRenderer.js"></script>		
+		<script src="../../threejs/TrackballControls.js"></script>
+		<script src="../../threejs/VRMLLoader.js"></script>
+		<script src="../../mavr-lib/build/mavr.min.js"></script>
+		<script src="web3d.js"></script>
+		<link rel="stylesheet" href="../../dependency-lib/jstree-3.3.0/themes/default/style.min.css">
+		<link rel="stylesheet" href="../../lib/jquery-ui-1.11.4/jquery-ui.min.css">
+		<link rel="stylesheet" href="../../mavr-lib/build/mavr.css">
+		<link rel="stylesheet" href="../../lib/3DObjects.css">
+		<title>solar system</title>
+	</head>
+	<body>	
+		<di id="threejs" style="position: absolute; width: 1300px;">
+			<style>
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				background-color: #ffffff;
+				margin: 0px;
+				font-family: 'inconsolata';
+				font-size: 15px;
+				line-height: 18px;
+				color: #555;
+			}
+
+			h1 {
+				margin-top: 30px;
+				margin-bottom: 30px;
+				margin-left: 20px;
+				font-size: 25px;
+				font-weight: normal;
+			}
+
+			h2 {
+				color: #999;
+				font-size: 18px;
+				font-weight: normal;
+
+				margin-top: 5px;
+				margin-bottom: 30px;
+			}
+
+			hr {
+				border: 0px;
+				height: 1px;
+				background-color: #ccc;
+				margin: 30px 0px;
+			}
+
+			sup {
+				position: relative;
+				margin-left: 5px;
+				font-size: 15px;
+				top: -0.5em;
+				vertical-align: top;
+			}
+
+			a {
+				color: #2194CE;
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			#panel {
+				position: fixed;
+				left: 0px;
+				top: 0px;
+				bottom: 0px;
+				width: 180px;
+				background: #ffffff;
+			}
+
+				#panel #content {
+					padding: 0px 20px;
+				}
+
+				#panel img {
+					border: 1px solid #ccc;
+				}
+
+				#panel #resource {
+					text-align: center;
+				}
+
+				#panel #book {
+					text-align: center;
+					margin-top: 15px;
+				}
+
+			#viewer {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				left: 180px;
+				padding: 28px 20px;
+			}
+
+				#viewer #more {
+					position: absolute;
+					top: 32px;
+					right: 20px;
+				}
+
+				#viewer #projects a {
+					display: block;
+					width: 200px;
+					height: 150px;
+					float: left;
+				}
+
+				#viewer #projects img {
+					width: 100%;
+					height: 100%;
+				}
+
+				#viewer #projects img:hover {
+					opacity: 0.75;
+				}
+
+			/* mobile */
+
+			#expandButton {
+				display: none;
+				position: absolute;
+				right: 20px;
+				top: 12px;
+				width: 32px;
+				height: 32px;
+			}
+
+				#expandButton span {
+					height: 2px;
+					background-color: #2194CE;
+					width: 16px;
+					position: absolute;
+					left: 8px;
+					top: 10px;
+				}
+
+				#expandButton span:nth-child(1) {
+					top: 16px;
+				}
+
+				#expandButton span:nth-child(2) {
+					top: 22px;
+				}
+
+			@media all and ( max-width: 640px ) {
+				h1 {
+					margin-top: 20px;
+					margin-bottom: 20px;
+				}
+				h2 {
+					margin-bottom: 20px;
+				}
+				#panel {
+					position: absolute;
+					left: 0;
+					top: 0;
+					height: 480px;
+					width: 100%;
+					right: 0;
+					z-index: 100;
+					overflow: hidden;
+					border-bottom: 1px solid #dedede;
+				}
+				#content {
+					position: absolute;
+					left: 0;
+					top: 60px;
+					right: 0;
+					bottom: 0;
+					font-size: 17px;
+					line-height: 22px;
+					text-align: center;
+					overflow: auto;
+				}
+				#viewer {
+					position: absolute;
+					left: 0;
+					top: 56px;
+					width: 100%;
+					height: calc(100% - 56px);
+					overflow: auto;
+				}
+				#expandButton {
+					display: block;
+				}
+				#panel.collapsed {
+					height: 56px;
+				}
+			}
+
+		</style>
+			<div id="projects">
+				<a href="http://www.sennheiser-reshapingexcellence.com/" target="_blank"><img src="http://threejs.org/files/projects/reshapingexcellence.png"></a>
+				<a href="http://www.orchestredeparis.com/resonance/" target="_blank"><img src="http://threejs.org/files/projects/resonance.png"></a>
+				<a href="http://www.activation-nodeplus.com/" target="_blank"><img src="http://threejs.org/files/projects/nodeplus.png"></a>
+				<a href="http://www.littleworkshop.fr/renaultespace/" target="_blank"><img src="http://threejs.org/files/projects/renaultespace.png"></a>
+				<a href="http://ommexperience.com/" target="_blank"><img src="http://threejs.org/files/projects/ommexperience.png"></a>
+				<a href="https://crazyskills.panasonic.com/" target="_blank"><img src="http://threejs.org/files/projects/crazyskills.png"></a>
+				<a href="http://brunoquintela.com/" target="_blank"><img src="http://threejs.org/files/projects/brunoquintela.png"></a>
+				<a href="http://void.hi-res.net/" target="_blank"><img src="http://threejs.org/files/projects/void.png"></a>
+				<a href="http://cabbi.bo/enough/" target="_blank"><img src="http://threejs.org/files/projects/enough.png"></a>
+				<a href="http://www.insidious-movie.net/entertheroom/" target="_blank"><img src="http://threejs.org/files/projects/entertheroom.png"></a>
+				<a href="http://news-lab-trends-experiment.appspot.com/" target="_blank"><img src="http://threejs.org/files/projects/newslabtrends.png"></a>
+				<a href="http://www.dennis.video/" target="_blank"><img src="http://threejs.org/files/projects/dennis.png"></a>
+				<a href="http://www.fallen.io/ww2/" target="_blank"><img src="http://threejs.org/files/projects/fallenio.png"></a>
+				<a href="http://www.sbs.com.au/theboat/" target="_blank"><img src="http://threejs.org/files/projects/theboat.png"></a>
+			</div>
+		</div>
+		<script>
+		$(function() {
+			init();
+			animate();
+		});
+		</script>
+	</body>
+</html>

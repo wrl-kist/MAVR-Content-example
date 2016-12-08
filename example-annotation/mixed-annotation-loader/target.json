@@ -1,0 +1,17 @@
+{
+    "@type": "VirtualObject",
+    "resourceURL": [
+      "../../images/pin.png"
+    ],
+    "@context": "http://webizing.org",
+    "uuid": "56617352d5d989a032c8678b",
+    "name": "target-image",
+    "description": "KISTorium 2F-1",
+    "size" : {
+        "x" : 100,
+        "y" : 100
+    },
+    "category": [
+      "image/png"
+    ]
+  }
